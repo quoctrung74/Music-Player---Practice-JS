@@ -339,16 +339,17 @@ app.start();
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const song = [
-  {
-    name: "THERE'S NO ONE AT ALL (REMIX 2026)",
-    singer: "Sơn Tùng MTP",
-    path: "./music/song1.mp3",
-    image: "./img/img1.png"
-  },
-]
+
+const cd = $(".cd");
+const heading = $("header h2");
+const cdThumb = $(".cd-thumb");
+const audio = $("#audio");
+const player = $(".player");
+const playButton = $(".btn-toggle-play");
 
 const app = {
+  currentIndex : 0,
+  isPlaying : false,
   songs : [
     {
       name: "THERE'S NO ONE AT ALL (REMIX 2026)",
@@ -357,10 +358,10 @@ const app = {
       image: "./img/img1.png"
     },
     {
-      name: "THERE'S NO ONE AT ALL (REMIX 2026)",
-      singer: "Sơn Tùng MTP",
-      path: "./music/song1.mp3",
-      image: "./img/img1.png"
+      name: "LUZ ROJA",
+      singer: "Nurbolot Toktosunov",
+      path: "./music/song2.mp3",
+      image: "./img/img2.png"
     },
     {
       name: "THERE'S NO ONE AT ALL (REMIX 2026)",
@@ -433,7 +434,7 @@ const app = {
   },
 
   handleEvents : function () {
-    const cd = $(".cd");
+    // Xử lý phóng to, thu nhỏ CD
     const cdWidth = cd.offsetWidth;
     document.onscroll = function(){
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -441,12 +442,43 @@ const app = {
       cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
       cd.style.opacity = newCdWidth / cdWidth;
     }
-    
+    // Xử lý khi click play/pause
+    playButton.onclick = function(){
+      if (app.isPlaying){
+        audio.pause();
+      } else {
+        audio.play();
+      }
+    }
+    audio.onplay = function () {
+      app.isPlaying = true;
+      player.classList.add("playing");
+    }
+    audio.onpause = function () {
+      app.isPlaying = false;
+      player.classList.remove("playing");
+    }
+  },
+
+  defineProperties: function () {
+    Object.defineProperty(this, "currentSong", {
+      get : function (){
+        return this.songs[this.currentIndex];
+      }
+    })
+  },
+
+  loadCurrentSong : function () {
+    heading.textContent = this.currentSong.name;
+    cdThumb.style.backgroundImage = `url("${this.currentSong.image}")`;
+    audio.src = this.currentSong.path;
   },
 
   start : function () {
-    this.handleEvents();
     this.render();
+    this.handleEvents();
+    this.defineProperties();
+    this.loadCurrentSong();
   }
 }
 

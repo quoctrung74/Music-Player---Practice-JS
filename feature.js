@@ -329,9 +329,9 @@ app.start();
  * 2. Scroll top            => OK
  * 3. Play/Pause/Seek       => OK
  * 4. CD rotate
- * 5. Next/Prev
- * 6. Random
- * 7. Next/Repeat
+ * 5. Next/Prev             => OK
+ * 6. Random                => OK
+ * 7. Next/Repeat           => OK
  * 8. Active song
  * 9. Scroll active song into view
  * 10. Play song when click
@@ -351,11 +351,13 @@ const progress = $("#progress");
 const nextButton = $(".btn-next");
 const prevButton = $(".btn-prev");
 const randomButton = $(".btn-random");
+const repeatButton = $(".btn-repeat");
 
 const app = {
   currentIndex : 0,
   isPlaying : false,
   isRandom : false,
+  isRepeat : false,
   songs : [
     {
       name: "THERE'S NO ONE AT ALL (REMIX 2026)",
@@ -508,6 +510,30 @@ const app = {
         randomButton.classList.add("active");
       }
     }
+
+    // Xử lý khi bấm nút Repeat
+    repeatButton.onclick = function () {
+      if (app.isRepeat){
+        app.isRepeat = !app.isRepeat;
+        repeatButton.classList.remove("active");
+      } else {
+        app.isRepeat = !app.isRepeat;
+        repeatButton.classList.add("active");
+      }
+    }
+
+    // Xử lý khi kết thúc bài hát
+    audio.onended = function () {
+      if (app.isRepeat){
+        audio.play();
+      } else if (app.isRandom){
+        app.randomSong();
+        audio.play();
+      } else {
+        nextButton.click();
+      }
+    }
+
   },
 
   defineProperties: function () {
@@ -548,6 +574,7 @@ const app = {
     }
     this.loadCurrentSong();
   },
+
 
   start : function () {
     this.render();

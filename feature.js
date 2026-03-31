@@ -327,7 +327,7 @@ app.start();
 /** Các bước cần làm
  * 1. Render playlist song  => OK
  * 2. Scroll top            => OK
- * 3. Play/Pause/Seek
+ * 3. Play/Pause/Seek       => OK
  * 4. CD rotate
  * 5. Next/Prev
  * 6. Random
@@ -346,6 +346,7 @@ const cdThumb = $(".cd-thumb");
 const audio = $("#audio");
 const player = $(".player");
 const playButton = $(".btn-toggle-play");
+const progress = $("#progress");
 
 const app = {
   currentIndex : 0,
@@ -457,6 +458,19 @@ const app = {
     audio.onpause = function () {
       app.isPlaying = false;
       player.classList.remove("playing");
+    }
+    // Xử lý khi tiến trình audio thay đổi
+    audio.ontimeupdate = function () {
+      if (audio.duration){
+        const timePercent = Math.floor(
+          (audio.currentTime / audio.duration) * 100
+        );
+        progress.value = timePercent;
+      }
+    }
+    // Xử lý khi tua
+    progress.onchange = function () {
+      audio.currentTime = progress.value * audio.duration / 100;
     }
   },
 

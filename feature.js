@@ -348,9 +348,14 @@ const player = $(".player");
 const playButton = $(".btn-toggle-play");
 const progress = $("#progress");
 
+const nextButton = $(".btn-next");
+const prevButton = $(".btn-prev");
+const randomButton = $(".btn-random");
+
 const app = {
   currentIndex : 0,
   isPlaying : false,
+  isRandom : false,
   songs : [
     {
       name: "THERE'S NO ONE AT ALL (REMIX 2026)",
@@ -365,10 +370,16 @@ const app = {
       image: "./img/img2.png"
     },
     {
-      name: "THERE'S NO ONE AT ALL (REMIX 2026)",
-      singer: "Sơn Tùng MTP",
-      path: "./music/song1.mp3",
-      image: "./img/img1.png"
+      name: "HỒNG CHIÊU NGUYỆN",
+      singer: "SYENSAN x SWOKER REMIX",
+      path: "./music/song3.mp3",
+      image: "./img/img3.png"
+    },
+    {
+      name: "LO NGƯỜI ƯỚT ÁO",
+      singer: "Nguyễn Thạc Bảo Ngọc",
+      path: "./music/song4.mp3",
+      image: "./img/img4.png"
     },
     {
       name: "THERE'S NO ONE AT ALL (REMIX 2026)",
@@ -401,16 +412,10 @@ const app = {
       image: "./img/img1.png"
     },
     {
-      name: "THERE'S NO ONE AT ALL (REMIX 2026)",
-      singer: "Sơn Tùng MTP",
-      path: "./music/song1.mp3",
-      image: "./img/img1.png"
-    },
-    {
-      name: "THERE'S NO ONE AT ALL (REMIX 2026)",
-      singer: "Sơn Tùng MTP",
-      path: "./music/song1.mp3",
-      image: "./img/img1.png"
+      name: "LUZ ROJA",
+      singer: "Nurbolot Toktosunov",
+      path: "./music/song2.mp3",
+      image: "./img/img2.png"
     },
   ],
   
@@ -472,6 +477,37 @@ const app = {
     progress.onchange = function () {
       audio.currentTime = progress.value * audio.duration / 100;
     }
+
+    // Xử lý khi bấm nút Next
+    nextButton.onclick = function () {
+      if (app.isRandom){
+        app.randomSong();
+      } else {
+        app.nextSong();
+      }
+      audio.play();
+    }
+
+    // Xử lý khi bấm nút Prev
+    prevButton.onclick = function () {
+      if (app.isRandom){
+        app.randomSong();
+      } else {
+        app.prevSong();
+      }
+      audio.play();
+    }
+
+    // Xử lý khi bấm nút Random
+    randomButton.onclick = function () {
+      if (app.isRandom){
+        app.isRandom = !app.isRandom;
+        randomButton.classList.remove("active");
+      } else {
+        app.isRandom = !app.isRandom;
+        randomButton.classList.add("active");
+      }
+    }
   },
 
   defineProperties: function () {
@@ -486,6 +522,31 @@ const app = {
     heading.textContent = this.currentSong.name;
     cdThumb.style.backgroundImage = `url("${this.currentSong.image}")`;
     audio.src = this.currentSong.path;
+  },
+
+  nextSong : function () {
+    this.currentIndex ++;
+    this.currentIndex = this.currentIndex >= this.songs.length ? 0 : this.currentIndex;
+    this.loadCurrentSong();
+  },
+
+  prevSong : function () {
+    this.currentIndex --;
+    this.currentIndex = this.currentIndex < 0 ? this.songs.length -1 : this.currentIndex;
+    this.loadCurrentSong();
+
+  },
+
+  randomSong : function () {
+    while (true){
+      var newIndex = Math.floor(Math.random() * this.songs.length);
+      console.log(newIndex);
+      if (newIndex != this.currentIndex){
+        this.currentIndex = newIndex;
+        break;
+      }
+    }
+    this.loadCurrentSong();
   },
 
   start : function () {

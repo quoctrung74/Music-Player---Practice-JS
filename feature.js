@@ -352,6 +352,7 @@ const nextButton = $(".btn-next");
 const prevButton = $(".btn-prev");
 const randomButton = $(".btn-random");
 const repeatButton = $(".btn-repeat");
+const playlist = $(".playlist");
 
 const app = {
   currentIndex : 0,
@@ -424,7 +425,7 @@ const app = {
   render : function () {
     var renderPlayList = this.songs.map((song, index) => {
       return `
-        <div class="song">
+        <div class="song ${index === this.currentIndex ? "active" : ""}" data-index="${index}">
           <div class="thumb"
               style="background-image: url('${song.image}')">
           </div>
@@ -534,6 +535,24 @@ const app = {
       }
     }
 
+    // Xử lý phát nhạc khi click vào một bài bất kỳ trong playlist
+    playlist.onclick = function (e) {
+      const songNode = e.target.closest(".song:not(.active)");
+      if (songNode || e.target.closest(".option")) {
+        // Xử lý khi click vào một bài hát bất kỳ
+        if (songNode) {
+          app.currentIndex = Number(songNode.dataset.index);
+          app.loadCurrentSong();
+          app.render();
+          audio.play();
+        }
+
+        // Xử lý khi click vào song option
+        if (e.target.closest(".option")) {
+        }
+      }
+    };
+
   },
 
   defineProperties: function () {
@@ -553,12 +572,14 @@ const app = {
   nextSong : function () {
     this.currentIndex ++;
     this.currentIndex = this.currentIndex >= this.songs.length ? 0 : this.currentIndex;
+    this.render();
     this.loadCurrentSong();
   },
 
   prevSong : function () {
     this.currentIndex --;
     this.currentIndex = this.currentIndex < 0 ? this.songs.length -1 : this.currentIndex;
+    this.render();
     this.loadCurrentSong();
 
   },
@@ -572,6 +593,7 @@ const app = {
         break;
       }
     }
+    this.render();
     this.loadCurrentSong();
   },
 

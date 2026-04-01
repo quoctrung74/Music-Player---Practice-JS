@@ -367,8 +367,8 @@ const app = {
       image: "./img/img1.png"
     },
     {
-      name: "LUZ ROJA",
-      singer: "Nurbolot Toktosunov",
+      name: "LỠ MỘT LỜI THƯƠNG",
+      singer: "Vy Oanh",
       path: "./music/song2.mp3",
       image: "./img/img2.png"
     },
@@ -385,40 +385,40 @@ const app = {
       image: "./img/img4.png"
     },
     {
-      name: "THERE'S NO ONE AT ALL (REMIX 2026)",
-      singer: "Sơn Tùng MTP",
-      path: "./music/song1.mp3",
-      image: "./img/img1.png"
+      name: "MỞ LÒNG VÌ AI",
+      singer: "Lý Văn - Inso cover",
+      path: "./music/song5.mp3",
+      image: "./img/img5.png"
     },
     {
-      name: "THERE'S NO ONE AT ALL (REMIX 2026)",
-      singer: "Sơn Tùng MTP",
-      path: "./music/song1.mp3",
-      image: "./img/img1.png"
+      name: "ĐỊA NGỤC TRẦN GIAN",
+      singer: "Phạm Kỳ",
+      path: "./music/song6.mp3",
+      image: "./img/img6.png"
     },
     {
-      name: "THERE'S NO ONE AT ALL (REMIX 2026)",
-      singer: "Sơn Tùng MTP",
-      path: "./music/song1.mp3",
-      image: "./img/img1.png"
+      name: "HẸN HÒ NHƯNG KHÔNG YÊU",
+      singer: "Wendy Thảo",
+      path: "./music/song7.mp3",
+      image: "./img/img7.png"
     },
     {
-      name: "THERE'S NO ONE AT ALL (REMIX 2026)",
-      singer: "Sơn Tùng MTP",
-      path: "./music/song1.mp3",
-      image: "./img/img1.png"
+      name: "MƯA RỜI VÀO PHÒNG",
+      singer: "Khởi My",
+      path: "./music/song8.mp3",
+      image: "./img/img8.png"
     },
     {
-      name: "THERE'S NO ONE AT ALL (REMIX 2026)",
-      singer: "Sơn Tùng MTP",
-      path: "./music/song1.mp3",
-      image: "./img/img1.png"
+      name: "NẮNG DƯỚI CHÂN MÂY",
+      singer: "Nguyễn Hữu Kha",
+      path: "./music/song9.mp3",
+      image: "./img/img9.png"
     },
     {
-      name: "LUZ ROJA",
-      singer: "Nurbolot Toktosunov",
-      path: "./music/song2.mp3",
-      image: "./img/img2.png"
+      name: "HOA TÀN TÌNH TAN",
+      singer: "Giang Jolee",
+      path: "./music/song10.mp3",
+      image: "./img/img10.png"
     },
   ],
   
@@ -451,6 +451,21 @@ const app = {
       cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
       cd.style.opacity = newCdWidth / cdWidth;
     }
+
+    // Xử lý đĩa CD quay
+    const cdThumbAnimate = cdThumb.animate(
+      [
+        { 
+          transform: "rotate(360deg)" 
+        }
+      ], 
+      {
+      duration: 10000,
+      iterations: Infinity
+      }
+    );
+    cdThumbAnimate.pause();
+
     // Xử lý khi click play/pause
     playButton.onclick = function(){
       if (app.isPlaying){
@@ -462,10 +477,12 @@ const app = {
     audio.onplay = function () {
       app.isPlaying = true;
       player.classList.add("playing");
+      cdThumbAnimate.play();
     }
     audio.onpause = function () {
       app.isPlaying = false;
       player.classList.remove("playing");
+      cdThumbAnimate.pause();
     }
     // Xử lý khi tiến trình audio thay đổi
     audio.ontimeupdate = function () {

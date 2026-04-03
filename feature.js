@@ -328,13 +328,13 @@ app.start();
  * 1. Render playlist song  => OK
  * 2. Scroll top            => OK
  * 3. Play/Pause/Seek       => OK
- * 4. CD rotate
+ * 4. CD rotate             => OK
  * 5. Next/Prev             => OK
  * 6. Random                => OK
  * 7. Next/Repeat           => OK
  * 8. Active song
  * 9. Scroll active song into view
- * 10. Play song when click
+ * 10. Play song when click => OK
  */
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -415,10 +415,16 @@ const app = {
       image: "./img/img9.png"
     },
     {
-      name: "HOA TÀN TÌNH TAN",
-      singer: "Giang Jolee",
-      path: "./music/song10.mp3",
-      image: "./img/img10.png"
+      name: "MƯA ĐỢI CHỜ",
+      singer: "Miu Lê",
+      path: "./music/song11.mp3",
+      image: "./img/img11.png"
+    },
+    {
+      name: "ĐỊA NGỤC TRẦN GIAN",
+      singer: "Phạm Kỳ",
+      path: "./music/song6.mp3",
+      image: "./img/img6.png"
     },
   ],
   

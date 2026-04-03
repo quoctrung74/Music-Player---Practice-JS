@@ -415,16 +415,16 @@ const app = {
       image: "./img/img9.png"
     },
     {
+      name: "HOA TÀN TÌNH TAN",
+      singer: "Giang Jolee",
+      path: "./music/song10.mp3",
+      image: "./img/img10.png"
+    },
+    {
       name: "MƯA ĐỢI CHỜ",
       singer: "Miu Lê",
       path: "./music/song11.mp3",
       image: "./img/img11.png"
-    },
-    {
-      name: "ĐỊA NGỤC TRẦN GIAN",
-      singer: "Phạm Kỳ",
-      path: "./music/song6.mp3",
-      image: "./img/img6.png"
     },
   ],
   

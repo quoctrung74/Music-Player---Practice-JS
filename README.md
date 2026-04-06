@@ -1,4 +1,9 @@
 # 🎵 Music Player Web Application
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Deployment](https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 > Một ứng dụng nghe nhạc trực tuyến được xây dựng hoàn toàn bằng Vanilla JavaScript, HTML5 và CSS3.
 
 ---
@@ -32,3 +37,13 @@ Mã nguồn được tổ chức theo cấu trúc hướng đối tượng (Obje
 1. Clone repository này về máy:
 ```bash
 git clone https://github.com/quoctrung74/music-player.git
+```
+2. Mở file index.html trực tiếp trên trình duyệt hoặc sử dụng extension Live Server trong VS Code để có trải nghiệm tốt nhất.
+
+## 👤 Thông tin tác giả
+* Họ tên: Nguyễn Quốc Trung
+* Mã số sinh viên: 2413707
+* Trường: Đại học Bách khoa - ĐHQG TP.HCM
+* Nickname: RamTy
+* Email: quoctrung.08042006@gmail.com
+* GitHub: quoctrung74

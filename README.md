@@ -4,46 +4,46 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![Deployment](https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-> Một ứng dụng nghe nhạc trực tuyến được xây dựng hoàn toàn bằng Vanilla JavaScript, HTML5 và CSS3.
+> An online music streaming application built entirely with Vanilla JavaScript, HTML5, and CSS3.
 
 ---
 
-## 📌 Tổng quan dự án
-Dự án này là một trình phát nhạc tập trung vào trải nghiệm người dùng với các hiệu ứng chuyển động mượt mà và logic xử lý âm thanh chặt chẽ. Đây là minh chứng cho việc vận dụng kiến thức về **DOM Manipulation**, **Event Handling** và **Array Methods** trong JavaScript.
+## 📌 Project Overview
+This project is a music player focused on user experience, featuring smooth animations and robust audio processing logic. It serves as a demonstration of applying **DOM Manipulation**, **Event Handling**, and **Array Methods** in JavaScript.
 
-## ✨ Các tính năng đã hoàn thiện
-Ứng dụng đã hỗ trợ:
-- ✅ **Render Playlist:** Tự động hiển thị danh sách bài hát từ dữ liệu có sẵn.
-- ✅ **CD Animation:** Đĩa CD quay khi phát nhạc và dừng khi tạm dừng.
-- ✅ **Scroll Interaction:** Hiệu ứng phóng to/thu nhỏ đĩa CD khi cuộn danh sách.
-- ✅ **Playback Control:** Đầy đủ các nút Play/Pause, Next, Previous.
-- ✅ **Smart Modes:** Chế độ phát ngẫu nhiên (Random) và phát lại (Repeat).
-- ✅ **Interactive Progress Bar:** Thanh tua nhạc (Seek) đồng bộ theo thời gian thực của bài hát.
+## ✨ Completed Features
+The application currently supports:
+- ✅ **Render Playlist:** Automatically displays the song list from available data.
+- ✅ **CD Animation:** The CD rotates during playback and pauses when the music stops.
+- ✅ **Scroll Interaction:** Smooth zoom-in/out effect for the CD when scrolling through the list.
+- ✅ **Playback Control:** Fully functional Play/Pause, Next, and Previous buttons.
+- ✅ **Smart Modes:** Includes Shuffle (Random) and Repeat modes.
+- ✅ **Interactive Progress Bar:** Real-time seek bar synchronized with the song's duration.
 
-## 🛠 Công nghệ sử dụng
+## 🛠 Tech Stack
 - **Frontend:** HTML5, CSS3 (Sử dụng Flexbox, Keyframes Animation).
 - **Logic:** Vanilla JavaScript (ES6+).
 - **Icons:** Font Awesome 5.
-- **Fonts:** Poppins từ Google Fonts.
+- **Fonts:** Poppins from Google Fonts.
 
-## 📂 Cấu trúc mã nguồn
-Mã nguồn được tổ chức theo cấu trúc hướng đối tượng (Object Literal) để dễ quản lý:
-- `render()`: Xử lý hiển thị danh sách bài hát ra giao diện.
-- `handleEvents()`: Tập hợp tất cả các sự kiện tương tác người dùng (scroll, click, audio events).
-- `loadCurrentSong()`: Cập nhật thông tin bài hát hiện tại lên dashboard.
-- `randomSong()` / `nextSong()` / `prevSong()`: Logic điều hướng danh sách phát.
+## 📂 Source Code Structure
+The source code is organized using an Object Literal structure for easier management:
+- `render()`: Handles UI rendering of the song list.
+- `handleEvents()`: Aggregates all user interaction events (scroll, click, audio events).
+- `loadCurrentSong()`: Updates the current song information on the dashboard.
+- `randomSong()` / `nextSong()` / `prevSong()`: Navigation logic for the playlist.
 
-## 🚀 Cách chạy dự án
-1. Clone repository này về máy:
+## 🚀 How to Run
+1. Clone this repository to your machine:
 ```bash
 git clone https://github.com/quoctrung74/music-player.git
 ```
-2. Mở file index.html trực tiếp trên trình duyệt hoặc sử dụng extension Live Server trong VS Code để có trải nghiệm tốt nhất.
+2. Open index.html directly in your browser or use the Live Server extension in VS Code for the best experience.
 
-## 👤 Thông tin tác giả
-* Họ tên: Nguyễn Quốc Trung
-* Mã số sinh viên: 2413707
-* Trường: Đại học Bách khoa - ĐHQG TP.HCM
+## 👤 Author Information
+* Full Name: Nguyễn Quốc Trung
+* Student ID: 2413707
+* University: Ho Chi Minh City University of Technology (HCMUT) - VNU-HCM
 * Nickname: RamTy
 * Email: quoctrung.08042006@gmail.com
 * GitHub: quoctrung74

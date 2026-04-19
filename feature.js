@@ -33,6 +33,7 @@ const app = {
   isPlaying : false,
   isRandom : false,
   isRepeat : false,
+  
   songs : [
     {
       name: "THERE'S NO ONE AT ALL (REMIX 2026)",

@@ -426,6 +426,18 @@ const app = {
       path: "./music/song11.mp3",
       image: "./img/img11.png"
     },
+    {
+      name: "DỐI LỪA",
+      singer: "Nguyễn Đình Vũ",
+      path: "./music/song12.mp3",
+      image: "./img/img12.png"
+    },
+    {
+      name: "XAO XUYẾN",
+      singer: "Bình Minh Vũ",
+      path: "./music/song13.mp3",
+      image: "./img/img13.png"
+    },
   ],
   
   render : function () {
